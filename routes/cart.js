@@ -9,3 +9,5 @@ router.post('/add', validate(cartValidation.addMenuItems), cartCtlr.addMenuItems
 router.post('/remove/:menuId', cartCtlr.removeMenuItem)
 
 router.get('/get', cartCtlr.getMyCart)
+
+module.exports = router

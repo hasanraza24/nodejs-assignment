@@ -9,6 +9,8 @@ var UnauthorizedError = require('express-jwt').UnauthorizedError;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var menuRouter = require('./routes/menu');
+var cartRouter = require('./routes/cart')
+var orderRouter = require('./routes/order')
 
 var authHandler = require('./helpers/auth-handler');
 
@@ -47,6 +49,8 @@ app.use(authHandler);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/menus', menuRouter);
+app.use('/orders', orderRouter);
+app.use('/carts', cartRouter);
 
 //catch errors
 // if error is not an instanceOf APIError, convert it.
