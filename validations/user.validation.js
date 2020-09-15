@@ -8,7 +8,9 @@ const authBody = {
 
 const userBody = {
   email: Joi.string().trim().email().required(),
-  password: Joi.string().trim().min(6).max(20).required()
+  password: Joi.string().trim().min(6).max(20).required(),
+  name: Joi.string().required(),
+  address: Joi.string().required()
 }
 
 const auth = assign({}, { body: authBody });
