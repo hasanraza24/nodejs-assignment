@@ -38,6 +38,10 @@ app.options('*', (req, res, next) => {
   res.sendStatus(200);
 });
 
+app.get('/images/:name', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'uploads/' + req.params.name ))
+})
+
 app.use(authHandler);
 
 app.use('/', indexRouter);

@@ -10,6 +10,10 @@ const excludeUrls = [
   {
       url: '/users/login',
       method: 'POST'
+  },
+  {
+    url: '/menus/create',
+    method: 'POST'
   }
 ];
 

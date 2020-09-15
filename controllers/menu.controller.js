@@ -1,8 +1,11 @@
 var Menu = require('../models/menu.model');
+const config = require('../config/config')
 
 const createMenu = async (req, res, next) => {
     try {
-        const menu = await Menu.create(req.user._id, req.body);
+        console.log('req.file', req.file)
+        req.body.imageUrl = `http://${config.host}:${config.port}/images/${req.file.filename}`
+        const menu = await Menu.create(req.body);
         res.json({ data: { menu }, message: 'Menu Created!'});
     }catch(e) {
         next(e);
