@@ -5,7 +5,7 @@ const mongoUrl = 'mongodb://' + config.mongo.host + ':' + config.mongo.port + '/
 
 // console.log('Mongo U', mongoUrl);
 
-mongoose.connect(mongoUrl, { useNewUrlParser: true }, (err) => {
+mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   console.log('error', err);
   console.log('Database connected');
 });

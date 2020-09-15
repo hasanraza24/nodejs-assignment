@@ -1,8 +1,13 @@
 var mongoose = require('../config/dbconnection');
 var bcrypt = require('bcrypt');
+var shortId = require('shortid')
 var createError = require('http-errors');
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
+    _id: {
+        type: String,
+        default: shortId.generate
+    },
     email: {
         type: String,
         required: true
@@ -19,8 +24,8 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     }
-});
-
+}, { timestamps: true });
+userSchema.index({ email: 1 }, { unique: true })
 //pre save hook for validation
 userSchema.post('save', (err, res, next) => {
     if (err.code === 11000) {

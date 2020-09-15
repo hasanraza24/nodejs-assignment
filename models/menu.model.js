@@ -1,7 +1,12 @@
 var mongoose = require('../config/dbconnection');;
+var shortId = require('shortid')
 var createError = require('http-errors');
 
-const menuSchema = mongoose.Schema({
+const menuSchema = new mongoose.Schema({
+    _id: {
+        type: String,
+        default: shortId.generate
+    },
     name: {
         type: String,
         required: true
@@ -18,7 +23,9 @@ const menuSchema = mongoose.Schema({
         type: String,
         required: true
     }
-});
+}, { timestamps: true });
+
+menuSchema.index({ name: 1 }, { unique: true })
 
 //pre save hook for validation
 menuSchema.post('save', (err, res, next) => {
