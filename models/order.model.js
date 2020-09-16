@@ -68,8 +68,11 @@ orderSchema.statics = {
             }],
             as: 'menuItems'
         } },
+        { $addFields: {
+          totalPrice: { $sum: '$menuItems.price' }
+        } }
     ])
-    return order
+    return order[0]
     } catch (e) {
       return Promise.reject(e)
     }

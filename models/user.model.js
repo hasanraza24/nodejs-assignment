@@ -64,6 +64,13 @@ userSchema.statics = {
         }catch(e) {
             return Promise.reject(e);
         }
+    },
+    async get(_id) {
+        try {
+            return await this.findOne({ _id });
+        }catch(e) {
+            return Promise.reject(e);
+        }
     }
 }
 
