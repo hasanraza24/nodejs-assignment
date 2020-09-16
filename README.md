@@ -30,3 +30,5 @@ then run
 ### `npm start`
 
 and application would be running on porn that you provided in .env
+
+All APIs are in Assignment.postman_collection.json you can import this into postman
