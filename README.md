@@ -13,3 +13,20 @@ You are building the API for a **pizza-delivery company**.
 8. Image upload of every menu item.
 (Postman will be used for testing APIs, so make the postman collection and add it in the project folder then submit project to git).
 
+
+
+### Solution
+
+To start project first create .env file and copy content from .env.example to .env
+and add the details in .env file
+
+
+Then run the command
+
+### `npm install`
+
+then run
+
+### `npm start`
+
+and application would be running on porn that you provided in .env
