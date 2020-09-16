@@ -57,8 +57,6 @@ const sendOrderEmail = async (orderId) => {
   }
 }
 
-sendOrderEmail('AeKvsT5st')
-
 module.exports = {
   create
 }

@@ -22,7 +22,11 @@ const envVarsSchema = Joi.object({
   MONGO_PASSWORD: Joi.string()
     .description('Mongo DB user password'),
   MONGO_DATABASE: Joi.string().required()
-    .description('Mongo DB database')
+    .description('Mongo DB database'),
+  MAIL_API_KEY: Joi.string().required()
+    .description('API Key of mailgun'),
+  MAIL_DOMAIN: Joi.string().required()
+    .description('Domain for sending mail from mailgun')
 }).unknown()
   .required();
 
@@ -42,6 +46,10 @@ const config = {
     username: envVars.MONGO_USERNAME,
     password: envVars.MONGO_PASSWORD,
     database: envVars.MONGO_DATABASE,
+  },
+  mail: {
+    apiKey: envVars.MAIL_API_KEY,
+    domain: envVars.MAIL_DOMAIN
   }
 };
 
