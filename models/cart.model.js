@@ -36,11 +36,15 @@ cartSchema.statics = {
     },
     async addMenuItem(userId, menuIds) {
         try {
-            const updatedCart = await this.findOneAndUpdate({ userId }, {
-                $push: {
+            let updatedCart = await this.findOneAndUpdate({ userId }, {
+                $addToSet: {
                     menus: { $each: menuIds }
                 }
             }, { new: true })
+            if (!updatedCart) {
+                const newCart = new this({ userId, menus: menuIds })
+                updatedCart = await newCart.save()
+            }
             return updatedCart
         } catch (e) {
             return Promise.reject(e)
@@ -71,8 +75,8 @@ cartSchema.statics = {
         const cart = await this.aggregate([
             { $match: { userId } },
             { $lookup: {
+                from: 'menus',
                 let: { menuIds: '$menus' },
-                from: 'menu',
                 pipeline: [{
                     $match: { $expr: {
                         $in: ['$_id', '$$menuIds']

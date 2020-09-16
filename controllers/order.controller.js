@@ -3,6 +3,7 @@ const mailHelper = require('../helpers/mail.helper')
 
 const create = async (req, res, next) => {
   try {
+    req.body.userId = req.user._id
     const order = await Order.create(req.body)
     sendOrderEmail().then(() => {
       console.log('email sent')

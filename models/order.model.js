@@ -59,8 +59,8 @@ orderSchema.statics = {
       const order = await this.aggregate([
         { $match: { _id } },
         { $lookup: {
+          from: 'menus',
             let: { menuIds: '$menus' },
-            from: 'menu',
             pipeline: [{
                 $match: { $expr: {
                     $in: ['$_id', '$$menuIds']

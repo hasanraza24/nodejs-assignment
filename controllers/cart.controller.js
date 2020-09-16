@@ -2,7 +2,8 @@ const Cart = require('../models/cart.model')
 
 const addMenuItems = async (req, res, next) => {
   try {
-    const cart = await Cart.addMenuItem(req.user.userId, req.body.menuIds)
+    console.log(req.user)
+    const cart = await Cart.addMenuItem(req.user._id, req.body.menus)
     res.json({ data: { cart }, message: 'cart updated'});
   } catch (e) {
     next(e)
@@ -11,7 +12,7 @@ const addMenuItems = async (req, res, next) => {
 
 const removeMenuItem = async (req, res, next) => {
   try {
-    const cart = await Cart.removeMenuItem(req.user.userId, req.params.menuId)
+    const cart = await Cart.removeMenuItem(req.user._id, req.params.menuId)
     res.json({ data: { cart }, message: 'cart updated'});
   } catch (e) {
     next(e)
@@ -20,7 +21,7 @@ const removeMenuItem = async (req, res, next) => {
 
 const getMyCart = async (req, res, next) => {
   try {
-    const cart = await Cart.getByUserId(req.user.userId)
+    const cart = await Cart.getByUserId(req.user._id)
     res.json({ data: { cart }, message: 'cart list'});
   } catch (e) {
     next(e)
