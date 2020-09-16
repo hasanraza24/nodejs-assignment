@@ -32,3 +32,5 @@ then run
 and application would be running on porn that you provided in .env
 
 All APIs are in Assignment.postman_collection.json you can import this into postman
+
+Deployed it on heroku and is live on https://alteen-pizza.herokuapp.com
