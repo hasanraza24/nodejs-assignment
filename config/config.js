@@ -13,16 +13,8 @@ const envVarsSchema = Joi.object({
   HOST: Joi.string().required(),
   JWT_SECRET: Joi.string().required()
     .description('JWT Secret required to sign'),
-  MONGO_HOST: Joi.string().required()
+  MONGO_URL: Joi.string().required()
     .description('Mongo DB host url'),
-  MONGO_PORT: Joi.number()
-    .default(27017),
-  MONGO_USERNAME: Joi.string().required()
-    .description('Mongo DB user'),
-  MONGO_PASSWORD: Joi.string()
-    .description('Mongo DB user password'),
-  MONGO_DATABASE: Joi.string().required()
-    .description('Mongo DB database'),
   MAIL_API_KEY: Joi.string().required()
     .description('API Key of mailgun'),
   MAIL_DOMAIN: Joi.string().required()
@@ -41,11 +33,7 @@ const config = {
   host: envVars.HOST,
   jwtSecret: envVars.JWT_SECRET,
   mongo: {
-    host: envVars.MONGO_HOST,
-    port: envVars.MONGO_PORT,
-    username: envVars.MONGO_USERNAME,
-    password: envVars.MONGO_PASSWORD,
-    database: envVars.MONGO_DATABASE,
+    url: envVars.MONGO_URL
   },
   mail: {
     apiKey: envVars.MAIL_API_KEY,

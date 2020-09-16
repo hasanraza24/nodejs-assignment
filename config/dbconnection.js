@@ -1,7 +1,7 @@
 const config = require('../config/config');
 var mongoose = require('mongoose');
 
-const mongoUrl = 'mongodb://' + config.mongo.host + ':' + config.mongo.port + '/' + config.mongo.database;
+const mongoUrl = config.mongo.url
 
 // console.log('Mongo U', mongoUrl);
 
