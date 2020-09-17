@@ -15,7 +15,7 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Marshmallo Pizza",
+							"value": "Marshmallo Pizza kk",
 							"type": "text"
 						},
 						{
@@ -42,11 +42,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:4000/menus/create",
+					"raw": "https://alteen-pizza.herokuapp.com/menus/create",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"alteen-pizza",
+						"herokuapp",
+						"com"
 					],
-					"port": "4000",
 					"path": [
 						"menus",
 						"create"
@@ -256,6 +258,35 @@
 					"path": [
 						"orders",
 						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/orders/report?startDate=2020-09-18T00:00:00.000Z&endDate=2020-09-21T00:00:00.000Z",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						"report"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2020-09-18T00:00:00.000Z"
+						},
+						{
+							"key": "endDate",
+							"value": "2020-09-21T00:00:00.000Z"
+						}
 					]
 				}
 			},

@@ -6,5 +6,7 @@ var orderValidation = require('../validations/order.validation');
 
 router.post('/create', validate(orderValidation.create), orderCtlr.create)
 
+router.get('/report', orderCtlr.getOrderReport)
+
 module.exports = router
 

@@ -14,6 +14,10 @@ const excludeUrls = [
   {
     url: '/menus/create',
     method: 'POST'
+  },
+  {
+    url: '/orders/report',
+    method: 'GET'
   }
 ];
 

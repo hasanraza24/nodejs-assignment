@@ -18,8 +18,6 @@ const orderSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-orderSchema.index({ name: 1 }, { unique: true })
-
 //pre save hook for validation
 orderSchema.post('save', (err, res, next) => {
     if (err.code === 11000) {
